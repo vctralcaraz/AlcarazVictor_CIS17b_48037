@@ -1,10 +1,3 @@
-/* 
- * File:   Prob3Table.h
- * Author: Victor Alcaraz
- * Created on September 1, 2016, 11:54 PM
- * Purpose: Classification of Prob3Table
- */
-
 #ifndef PROB3TABLE_H
 #define PROB3TABLE_H
 
@@ -13,6 +6,7 @@
 #include <iomanip>
 #include <fstream>
 #include <cstdlib>
+#include <QtCore>
 using namespace std;
 
 //base class
@@ -35,7 +29,4 @@ class Prob3Table
         int getGrandTotal(void) {return grandTotal;}
 };
 
-
-
-#endif /* PROB3TABLE_H */
-
+#endif // PROB3TABLE_H

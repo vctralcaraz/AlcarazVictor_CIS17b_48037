@@ -6,10 +6,9 @@
  */
 
 // System Libraries
-#include <iostream>
-using namespace std;
 
 // User Libraries
+#include "Prob3TableInherited.h"
 
 // Global Constants
 
@@ -22,8 +21,8 @@ int main(int argc, char** argv) {
     int rows=5;
     int cols=6;
     
-    Prob3TableInherited<int> tab("Problem3.txt",rows,cols);
-    const int *naugT=tab.getTable();
+    Prob3TableInherited tab("Problem3.txt",rows,cols);
+    const int *naugT = tab.getTable();
     for(int i=0;i<rows;i++)
     {
         for(int j=0;j<cols;j++)
@@ -33,15 +32,16 @@ int main(int argc, char** argv) {
         cout<<endl;
     }
     cout<<endl;
+    
     const int *augT=tab.getAugTable();
-    for(int i=0;i<=rows;i++)
-    {
-        for(int j=0;j<=cols;j++)
-        {
-            cout<<augT[i*(cols+1)+j]<<" ";
-        }
-        cout<<endl;
-    }
+	for(int i=0;i<=rows;i++)
+	{
+		for(int j=0;j<=cols;j++)
+		{
+			cout<<augT[i*(cols+1)+j]<<" ";
+		}
+		cout<<endl;
+	}
     
     return 0; // Exit
 }
