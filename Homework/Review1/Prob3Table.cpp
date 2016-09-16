@@ -8,7 +8,6 @@
 
 Prob3Table::Prob3Table(char const *file, int row, int col)
 {
-//    cout << "Initializing..." << endl << endl;
     //initialize variables
     ifstream fin;
     
@@ -17,8 +16,6 @@ Prob3Table::Prob3Table(char const *file, int row, int col)
     cols = col;
     grandTotal = 0;
     
-//    cout << "row: " << row << endl;
-//    cout << "col: " << col << endl;
     //open file
     fin.open(file);
     
@@ -76,21 +73,11 @@ Prob3Table::Prob3Table(char const *file, int row, int col)
             
         }
     }
-//    cout << "Total number of variables: " << tCount << endl;
-//    cout << "outputting base table..." << endl;
-//    for(int j = 0; j < size; j++)
-//    {
-//        if(j % cols == 0) cout << endl;
-//        cout << table[j] << ' ';
-//    }
-//    cout << endl;
     
-//    cout << "done outputting base table..." << endl << endl;
     fin.close();
     
-//    cout << "calculating table..." << endl;
     calcTable();
-//    cout << "done calculating..." << endl;
+
 }
 
 Prob3Table::~Prob3Table()
@@ -125,13 +112,6 @@ void Prob3Table::calcTable(void)
         }
     }
     
-//    cout << "grand total: " << grandTotal << endl;
-//    for(int i = 0; i < rows; i++)
-//    {
-//        cout << rowSum[i] << ' ';
-//    }
-//    cout << endl;
-    
     //getting the sum of the cols
     int count = 0;
     sum = 0; //sum of each col
@@ -143,14 +123,8 @@ void Prob3Table::calcTable(void)
             sum += table[i + (k * cols)];
         }
         
-        colSum[++j] = sum;
+        colSum[j++] = sum;
+        grandTotal += sum;
         sum = 0;
     }
-    
-//    cout << "outputting colSum... " << endl;
-//    for(int i = 0; i < cols; i++)
-//    {
-//        cout << colSum[i] << ' ';
-//    }
-//    cout << endl;
 }

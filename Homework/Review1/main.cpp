@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
 	{
 		for(int j=0;j<=cols;j++)
 		{
-			cout<<augT[i*(cols+1)+j]<<" ";
+			cout << setw(4) << augT[i*(cols+1)+j] << " ";
 		}
 		cout<<endl;
 	}

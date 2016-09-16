@@ -19,44 +19,32 @@ Prob3TableInherited::Prob3TableInherited(char const *file, int row, int col) :
     {
         augTable[i] = 0;
     }
-    
-    //set table and sums to augTable
-    int j = 0; //for sums array index
-    int k = 0; //for table array index (from base class)
-    int index = 0; //last know index for augTable
-    int count = 0; //count number of output
-    int nSize = rows * (cols + 1);
-    for(int i = 0; i < nSize; i++)
+
+    //adding everything to augTable
+    int j = 0;      //table index
+    int k = 0;      //rowSum index
+    int m = 0;      //colSum index
+    int count = 0;  //counter per row
+    int newSize = (rows + 1) * (cols + 1);
+    for(int i = 0; i < newSize; i++)
     {
-        count++;
-        if(count == 7)
+        if(i >= rows * (cols +1))
         {
-            if(i == (nSize))
+            augTable[i] = colSum [m++];
+        }
+        else
+        {
+            count++;
+            augTable[i] = table[j++];
+            if(count == 6)
             {
-                augTable[i++] = table[k];
-                augTable[i] = rowSum[j];
-                break;
+                augTable[++i] = rowSum[k++];
+                count = 0;
             }
-            augTable[i++] = rowSum[j++];
-            count = 1;
-        }
-        if(i != nSize)
-        {
-            augTable[i] = table[k++];
-            index = i;
         }
     }
     
-    augTable[nSize] = rowSum[j];
-    nSize--;
-    
-    //adding cols to augTable
-    for(int i = 0; i < cols + 1; i++)
-    {
-        augTable[nSize++] = colSum[i];
-    }
-    
-    augTable[((rows + 1) * (cols + 1))] = grandTotal;
+    augTable[newSize - 1] = grandTotal;
 }
 
 Prob3TableInherited::~Prob3TableInherited()
