@@ -113,7 +113,7 @@ void Prob3Table::calcTable(void)
     }
 
     //getting the sum of the cols
-    int count = 0;
+    //int count = 0;
     sum = 0; //sum of each col
     int j = 0;   //sum array index
     for(int i = 0; i < cols; i++)
